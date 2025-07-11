@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# This script lists the content of the directory, showing only the part after the dash in filenames
+
+for file in *-*
+do
+  # Skip if it's a directory
+  if [ -f "$file" ]; then
+    echo "${file#*-}"
+  fi
+done
+
