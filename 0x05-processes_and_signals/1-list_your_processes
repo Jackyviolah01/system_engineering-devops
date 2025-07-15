@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
-# A Bash script that shows all running processes with user, started time, and command
+# A Bash script that shows user, process started time, and command in correct format
 
-ps -eo user,lstart,command
+ps -eo user=USER,lstart=STARTED,comm=COMMAND
