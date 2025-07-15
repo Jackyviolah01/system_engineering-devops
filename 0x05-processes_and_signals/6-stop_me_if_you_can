@@ -6,3 +6,4 @@ PID=$(pgrep -f 4-to_infinity_and_beyond | head -n 2)
 for p in $PID; do
   : > /proc/$p/fd/0
 done
+echo 2
