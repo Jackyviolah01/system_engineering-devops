@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-# Stops the 4-to_infinity_and_beyond process without using kill or killall
+# Silently stops the 4-to_infinity_and_beyond process without using kill or killall
 
-for p in $(pgrep -f "4-to_infinity_and_beyond"); do
-  : > "/proc/$p/fd/0"
+for pid in $(pgrep -f "^./4-to_infinity_and_beyond$"); do
+  : > "/proc/$pid/fd/0"
 done
