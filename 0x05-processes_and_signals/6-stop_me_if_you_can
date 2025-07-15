@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
-# A Bash script that silently stops 4-to_infinity_and_beyond process without using kill or killall
+# A Bash script that stops 4-to_infinity_and_beyond process without using kill or killall
 
-PID=$(pgrep -f 4-to_infinity_and_beyond)
-[ -n "$PID" ] && echo > "/proc/$PID/fd/0"
+exec < /dev/null
+PID=$(pgrep -f 4-to_infinity_and_beyond | head -n 2)
+for p in $PID; do
+  : > /proc/$p/fd/0
+done
