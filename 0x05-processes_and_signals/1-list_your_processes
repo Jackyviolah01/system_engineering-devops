@@ -1,2 +1,4 @@
 #!/usr/bin/env bash
 # This script lists all currently running processes with user-oriented formatting and hierarchy
+
+ps -eo user,lstart,cmd --forest
