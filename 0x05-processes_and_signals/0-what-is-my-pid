@@ -2,4 +2,3 @@
 # A Bash script that displays its own Process ID (PID)
 
 echo "$$"
-
