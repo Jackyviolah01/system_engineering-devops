@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
-# This script lists all running processes with USER, STARTED, and CMD in a human-readable, hierarchical format
+# This script lists all running processes with full details including the USER column
 
-ps -eo user,start_time,cmd --forest | awk 'NR==1 {print "USER STARTED CMD"} NR>1'
+ps -eo user,lstart,cmd --forest
