@@ -1,13 +1,12 @@
-#!/usr/bin/env bash
-# Finds and terminates the 4-to_infinity_and_beyond process without using kill or killall
+#!/bin/bash
 
-# Get the PID of the process by name
+# Get the PID of the '4-to_infinity_and_beyond' process
 pid=$(pgrep -f "4-to_infinity_and_beyond")
 
-# Send SIGTERM using /proc file system
+# If PID found, try to stop it by adjusting oom_score_adj (not using kill)
 if [ -n "$pid" ]; then
-  echo "Terminating process $pid..."
-  echo 15 > /proc/$pid/oom_score_adj 2>/dev/null
-else
-  echo "Process not found."
+    echo "Terminating process $pid..."
+    echo 15 > "/proc/$pid/oom_score_adj" 2>/dev/null
+    # Sending SIGTERM using /proc interface
+    echo -15 > "/proc/$pid/oom_adj" 2>/dev/null
 fi
