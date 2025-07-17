@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
-#shows currently running processes
-ps -auxf
+# Displays all running processes with full hierarchy, for all users including those without TTY
+
+ps -eo user,pid,%cpu,%mem,vsz,rss,tty,stat,start,time,command --forest
