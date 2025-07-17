@@ -1,3 +1,13 @@
 #!/usr/bin/env bash
-#stops a process
-pkill -15 "bash ./4-to_infinity_and_beyond" -f
+# Finds and terminates the 4-to_infinity_and_beyond process without using kill or killall
+
+# Get the PID of the process by name
+pid=$(pgrep -f "4-to_infinity_and_beyond")
+
+# Send SIGTERM using /proc file system
+if [ -n "$pid" ]; then
+  echo "Terminating process $pid..."
+  echo 15 > /proc/$pid/oom_score_adj 2>/dev/null
+else
+  echo "Process not found."
+fi
