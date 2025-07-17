@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 # Highlander
 
+echo "OK"
+
 trap "echo I am invincible!!!" SIGTERM
 
 while true
