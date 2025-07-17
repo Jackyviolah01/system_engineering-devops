@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
-# This script lists all running processes with full details including the USER column
+#shows currently running processes
+ps -auxf
 
-ps -eo user,lstart,cmd --forest
